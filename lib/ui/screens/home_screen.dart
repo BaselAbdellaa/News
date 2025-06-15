@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen>
         .map(
           (source) => Tab(
             child: Text(
-              source.name,
+              source.name ?? "",
               style: TextStyle(fontSize: 20, color: AppColors.blackColor),
             ),
           ),

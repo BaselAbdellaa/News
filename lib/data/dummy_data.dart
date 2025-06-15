@@ -1,8 +1,8 @@
 import 'package:news/data/models/news_model.dart';
-import 'package:news/data/models/news_source.dart';
+import 'package:news/data/models/sourceReponse/Sources.dart';
 
-List<NewsSource> dummySources = [
-  NewsSource(
+List<Source> dummySources = [
+  Source(
     id: "bbc-news",
     name: "BBC News",
     description: "The latest international news from BBC.",
@@ -11,7 +11,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "gb",
   ),
-  NewsSource(
+  Source(
     id: "cnn",
     name: "CNN",
     description: "Breaking news, live coverage, and updates from CNN.",
@@ -20,7 +20,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "us",
   ),
-  NewsSource(
+  Source(
     id: "fox-news",
     name: "Fox News",
     description: "Breaking news and political coverage from Fox News.",
@@ -29,7 +29,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "us",
   ),
-  NewsSource(
+  Source(
     id: "al-jazeera-english",
     name: "Al Jazeera English",
     description: "Breaking news and in-depth coverage from Al Jazeera.",
@@ -38,7 +38,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "qa",
   ),
-  NewsSource(
+  Source(
     id: "reuters",
     name: "Reuters",
     description:
@@ -48,7 +48,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "us",
   ),
-  NewsSource(
+  Source(
     id: "techcrunch",
     name: "TechCrunch",
     description: "Latest technology news and startup trends from TechCrunch.",
@@ -57,7 +57,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "us",
   ),
-  NewsSource(
+  Source(
     id: "wired",
     name: "Wired",
     description: "Tech news, science, culture, and business from Wired.",
@@ -66,7 +66,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "us",
   ),
-  NewsSource(
+  Source(
     id: "espn",
     name: "ESPN",
     description: "Sports news, scores, and analysis from ESPN.",
@@ -75,7 +75,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "us",
   ),
-  NewsSource(
+  Source(
     id: "bleacher-report",
     name: "Bleacher Report",
     description:
@@ -85,7 +85,7 @@ List<NewsSource> dummySources = [
     language: "en",
     country: "us",
   ),
-  NewsSource(
+  Source(
     id: "national-geographic",
     name: "National Geographic",
     description:
