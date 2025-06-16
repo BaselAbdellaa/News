@@ -1,11 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news/core/app_colors.dart';
-import 'package:news/data/models/news_model.dart';
+import 'package:news/data/models/NewsResponse/Articles.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class NewsItem extends StatelessWidget {
   const NewsItem({super.key, required this.newsArticle});
-  final NewsArticle newsArticle;
+  final NewsArticles newsArticle;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,14 +23,17 @@ class NewsItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.network(
+            child: CachedNetworkImage(
+              placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+              imageUrl: newsArticle.urlToImage ??"",
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.height * 0.3,
-              "https://ichef.bbci.co.uk/news/1024/cpsprodpb/3d0e/live/0ced2c00-48d1-11f0-8feb-e38ae274979f.jpg.webp",
+
             ),
           ),
           Text(
-            newsArticle.description,
+            newsArticle.description??"",
             style: TextStyle(
               color: AppColors.blackColor,
               fontSize: 16,
@@ -40,11 +44,11 @@ class NewsItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "By : ${newsArticle.author}",
+                "By : ${newsArticle.author ?? "Unknown"}",
                 style: TextStyle(color: AppColors.greyColor),
               ),
               Text(
-                timeago.format(DateTime.parse(newsArticle.publishedAt)),
+                timeago.format(DateTime.parse(newsArticle.publishedAt??"")),
                 style: TextStyle(color: AppColors.greyColor),
               ),
             ],
