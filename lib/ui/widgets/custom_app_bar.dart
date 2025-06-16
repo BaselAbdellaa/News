@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/ui/screens/news_search_delegate.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -10,6 +11,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final TabBar? tabBar;
   final String title;
   final double? height;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -17,7 +19,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       bottom: tabBar,
       centerTitle: true,
       actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.search, size: 30)),
+        IconButton(onPressed: () => showSearch(context: context, delegate: NewsSearchDelegate()), icon: Icon(Icons.search, size: 30)),
       ],
     );
   }
