@@ -48,29 +48,7 @@ class NewsSearchDelegate extends SearchDelegate{
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    List<NewsArticles> newsList = [];
-    if(query.isEmpty){
-      return Center(child: Text("No Data To Search Yet"),);
-    }
-    return FutureBuilder(
-      future: ApiManager.getInstance().searchNews(query),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting &&
-            newsList.isEmpty) {
-          return LoadingWidget();
-        } else if (snapshot.hasError) {
-          return Center(child: Text(snapshot.error.toString()));
-        }
-
-          newsList.addAll(snapshot.data?.articles ?? []);
-
-
-        return  Expanded(
-          child: NewsListView(news: newsList),
-        );
-
-      },
-    );
+    return buildResults(context);
   }
 
 }
