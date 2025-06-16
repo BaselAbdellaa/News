@@ -42,12 +42,17 @@ class NewsItem extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            spacing: 5,
             children: [
-              Text(
-                "By : ${newsArticle.author ?? "Unknown"}",
-                style: TextStyle(color: AppColors.greyColor),
+              Flexible(
+                child: Text(
+                  overflow: TextOverflow.ellipsis,
+                  "By : ${newsArticle.author ?? "Unknown"}",
+                  style: TextStyle(color: AppColors.greyColor),
+                ),
               ),
               Text(
+                overflow: TextOverflow.ellipsis,
                 timeago.format(DateTime.parse(newsArticle.publishedAt??"")),
                 style: TextStyle(color: AppColors.greyColor),
               ),
