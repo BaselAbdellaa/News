@@ -33,15 +33,17 @@ class ApiManager {
   Future<SourceModel> getSources(String categoryId) async {
     final response = await _dio.get(
       "/v2/top-headlines/sources",
-      queryParameters: {"apiKey": "f4f949f1fef6467ca03b05af4d492650","category":categoryId},
+      queryParameters: {"apiKey": "25f7cd4776214267a1925c5aee3eff97","category":categoryId},
     );
     return SourceModel.fromJson(response.data);
   }
-  Future<NewsReponse> getNews(String sourceId) async {
+  Future<NewsReponse> getNews(String sourceId , {required int page}) async {
     final response = await _dio.get(
       "/v2/everything",
-      queryParameters: {"apiKey": "f4f949f1fef6467ca03b05af4d492650",
-      "sources":sourceId
+      queryParameters: {"apiKey": "25f7cd4776214267a1925c5aee3eff97",
+      "sources":sourceId,
+        "pageSize":"10",
+        "page":"$page"
       },
     );
     return NewsReponse.fromJson(response.data);
