@@ -4,9 +4,9 @@ import 'package:news/ui/widgets/news_item.dart';
 
 
 class NewsListView extends StatelessWidget {
-  const NewsListView({super.key, required this.news, required this.controller});
+  const NewsListView({super.key, required this.news,  this.controller});
   final List<NewsArticles> news;
-  final ScrollController controller;
+  final ScrollController? controller;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
