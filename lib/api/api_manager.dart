@@ -48,4 +48,13 @@ class ApiManager {
     );
     return NewsReponse.fromJson(response.data);
   }
+  Future<NewsReponse> searchNews(String query) async {
+    final response = await _dio.get(
+      "/v2/everything",
+      queryParameters: {"apiKey": "25f7cd4776214267a1925c5aee3eff97",
+      "q":query,
+      },
+    );
+    return NewsReponse.fromJson(response.data);
+  }
 }
