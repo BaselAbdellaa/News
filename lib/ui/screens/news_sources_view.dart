@@ -16,30 +16,6 @@ class NewsSourcesView extends StatefulWidget {
 
 class _NewsSourcesViewState extends State<NewsSourcesView>
     with SingleTickerProviderStateMixin {
-  // late TabController _tabController;
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _tabController = TabController(vsync: this, length: widget.sources!.length);
-  //   // if (!_tabController.indexIsChanging) {
-  //   //   fetchNewDataForTab();
-  //   //   setState(() {});
-  //   // }
-  //   // fetchNewDataForTab();
-  //   setState(() {});
-  // }
-
-  // List<NewsArticle> fetchNewDataForTab() {
-  //   var randomdata = Random().nextInt(dummyNews.length) + 1;
-  //   return dummyNews.take(randomdata).toList();
-  // }
-
-  // @override
-  // void dispose() {
-  //   _tabController.dispose();
-  //   super.dispose();
-  // }
-
   @override
   void didChangeDependencies() {
     // categories = ModalRoute.of(context)!.settings.arguments as CategoryModel;
@@ -92,12 +68,6 @@ void dispose() {
               });
             },
           ),
-          // TabBarView(
-          //   controller: _tabController,
-          //   children: dummySources
-          //       .map((e) => NewsListView(news: fetchNewDataForTab()))
-          //       .toList(),
-          // ),
           FutureBuilder(
             future: ApiManager.getInstance().getNews(
               widget.sources![selectedIndex].id ?? "",
